@@ -1,0 +1,24 @@
+{
+  "name": "@score-more-finale/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@score-more-finale/db": "workspace:*",
+    "@score-more-finale/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@score-more-finale/config": "workspace:*",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@score-more-finale/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@orpc/client": "catalog:",
+    "@orpc/openapi": "catalog:",
+    "@orpc/server": "catalog:",
+    "@orpc/zod": "catalog:",
+    "@score-more-finale/auth": "workspace:*",
+    "@score-more-finale/db": "workspace:*",
+    "@score-more-finale/env": "workspace:*",
+    "dotenv": "catalog:",
+    "next": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@score-more-finale/config": "workspace:*",
+    "typescript": "^5"
+  }
+}

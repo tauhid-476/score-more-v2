@@ -1,0 +1,3 @@
+{
+  "extends": "@score-more-finale/config/tsconfig.base.json"
+}
