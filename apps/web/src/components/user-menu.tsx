@@ -17,7 +17,6 @@ import { authClient } from "@/lib/auth-client";
 export default function UserMenu() {
   const router = useRouter();
   const { data: session, isPending } = authClient.useSession();
-
   if (isPending) {
     return <Skeleton className="h-9 w-24" />;
   }
@@ -32,13 +31,18 @@ export default function UserMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>
+      <DropdownMenuTrigger
+        render={<Button variant="outline" className="rounded-lg" />}
+      >
         {session.user.name}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-card">
+      <DropdownMenuContent className="bg-card w-full">
         <DropdownMenuGroup>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => router.push("/dashboard/history")}>
+            History
+          </DropdownMenuItem>
           <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
           <DropdownMenuItem
             variant="destructive"

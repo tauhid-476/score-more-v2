@@ -11,6 +11,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@orpc/client": "catalog:",
     "@orpc/openapi": "catalog:",
     "@orpc/server": "catalog:",
@@ -19,6 +20,8 @@
     "@score-more-finale/db": "workspace:*",
     "@score-more-finale/env": "workspace:*",
     "dotenv": "catalog:",
+    "drizzle-orm": "^0.45.2",
+    "jsonrepair": "^3.14.0",
     "next": "catalog:",
     "zod": "catalog:"
   },

@@ -1,1 +1,94 @@
 @import "@score-more-finale/ui/globals.css";
+
+:root {
+  --primary: oklch(0.55 0.15 145);
+  --primary-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.65 0.18 145);
+  --accent-foreground: oklch(0.205 0 0);
+  --ring: oklch(0.55 0.15 145);
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-background/70 backdrop-blur-lg border border-border/30;
+  }
+
+  .container-custom {
+    @apply px-4 md:px-8 lg:px-16 xl:px-24 mx-auto max-w-7xl;
+  }
+
+  .hot-badge {
+    @apply border-destructive text-destructive;
+  }
+
+  .cool-badge {
+    @apply border-[#192cc2] text-[#192cc2];
+  }
+
+  .extra-badge {
+    @apply border-[#b6de3f] text-[#b6de3f];
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blur-in {
+  animation: blur-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
