@@ -26,7 +26,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <div id="how-it-works" className="py-24 bg-accent/5">
+    <div id="how-it-works" className="py-24">
       <div className="container-custom" ref={containerRef}>
         <div
           className="max-w-xl mx-auto text-center mb-16 fade-in-element opacity-0"

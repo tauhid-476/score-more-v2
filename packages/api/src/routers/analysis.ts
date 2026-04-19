@@ -18,7 +18,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 const MOCK_RESPONSE: ExamAnalysisResponse = {
   metadata: {
-    subject: "Computer Networks",
+    subject: "Artificial Intelligence",
     paperCount: 4,
     totalQuestions: 60,
   },
@@ -26,19 +26,19 @@ const MOCK_RESPONSE: ExamAnalysisResponse = {
     questions: [
       {
         question:
-          "Compare the OSI reference model with the TCP/IP reference model.",
+          "Compare Informed (Heuristic) Search and Uninformed (Blind) Search strategies with examples.",
         marks: 10,
         frequency: "4_OF_4_PAPERS",
         solution:
-          "1. Both OSI and TCP/IP are layered communication models.\\n2. OSI has 7 layers, while TCP/IP has 4 (or 5) layers.\\n3. OSI layers: Physical, Data Link, Network, Transport, Session, Presentation, Application.\\n4. TCP/IP layers: Network Access, Internet, Transport, Application.\\n5. OSI is a conceptual model, whereas TCP/IP is a practical, client-server model used for the Internet.\\n6. OSI clearly distinguishes between services, interfaces, and protocols.\\n7. TCP/IP does not clearly distinguish these concepts.\\n8. In OSI, the Network layer supports both connectionless and connection-oriented communication.\\n9. In TCP/IP, the Internet layer supports only connectionless communication.\\n10. TCP/IP is more reliable for real-world networking, while OSI is mainly a reference tool.",
+          "### Search Strategies Comparison\n\nHere is the detailed comparison between Informed and Uninformed search approaches:\n\n| Feature | Informed (Heuristic) Search | Uninformed (Blind) Search |\n| :--- | :--- | :--- |\n| **Definition** | Uses domain-specific knowledge to guide the search towards the goal. | Uses no information other than the problem definition. |\n| **Efficiency** | Generally faster and highly efficient. | Time-consuming and requires large memory allocation. |\n| **Mechanism** | Uses a heuristic function, e.g., $f(n) = g(n) + h(n)$ | No heuristic evaluation function is used. |\n| **Completeness** | Not always complete (depends heavily on the heuristic). | Generally complete (e.g., Breadth-First Search). |\n| **Algorithms** | A* Search, Greedy Best-First Search. | BFS, DFS, Uniform Cost Search. |\n\n**Conclusion:** Informed search is heavily preferred for complex, large state-space problems like chess or route planning, whereas uninformed search is suited for smaller, simpler graph traversals.",
       },
       {
         question:
-          "Explain the functioning of IPv4 addressing and sub-netting with a suitable example.",
+          "Explain the concept of Alpha-Beta Pruning in the context of the Minimax algorithm.",
         marks: 10,
         frequency: "3_OF_4_PAPERS",
         solution:
-          "1. IPv4 addresses are 32-bit logical addresses assigned to devices on a network.\\n2. They are represented in dotted-decimal notation (e.g., 192.168.1.1).\\n3. The address space is divided into classes: A, B, C, D, and E.\\n4. Class A is for large networks, B for medium, C for small, D for multicast, E for experimental.\\n5. Subnetting is the process of dividing a larger network into smaller, manageable sub-networks.\\n6. This is done by borrowing bits from the host portion of the IP address to create a subnet mask.\\n7. Example: A Class C address 192.168.1.0 with a default mask of /24 (255.255.255.0).\\n8. If we borrow 2 bits for subnetting, the new mask is /26 (255.255.255.192).\\n9. This creates 4 subnets (2^2) with 62 usable hosts each (2^6 - 2).\\n10. Subnetting reduces broadcast domains and improves network security and performance.",
+          "### Alpha-Beta Pruning\n\nAlpha-beta pruning is a mathematical optimization technique for the minimax algorithm used heavily in adversarial game playing (like Chess or Tic-Tac-Toe).\n\n* **Alpha ($\\alpha$):** The best (highest-value) choice found so far at any choice point along the path for the **MAX** player.\n* **Beta ($\\beta$):** The best (lowest-value) choice found so far at any choice point along the path for the **MIN** player.\n\n**Pruning Conditions:**\n1.  **Beta Pruning:** Search can be stopped below a MIN node if its $\\beta$ value is less than or equal to the $\\alpha$ value of any of its MAX ancestors.\n2.  **Alpha Pruning:** Search can be stopped below a MAX node if its $\\alpha$ value is greater than or equal to the $\\beta$ value of any of its MIN ancestors.\n\n> **Note:** Alpha-beta pruning **does not** change the final optimal decision of the minimax algorithm; it strictly reduces the number of leaf nodes evaluated, drastically improving time complexity.",
       },
     ],
   },
@@ -46,22 +46,23 @@ const MOCK_RESPONSE: ExamAnalysisResponse = {
     questions: [
       {
         question:
-          "Describe the Distance Vector Routing Protocol with an example. What is the count-to-infinity problem?",
-        marks: 10,
+          "Describe the primary components of an Expert System architecture.",
+        marks: 8,
         frequency: "2_OF_4_PAPERS",
         solution:
-          "1. Distance Vector Routing (DVR) is a dynamic routing algorithm.\\n2. Routers share their entire routing table with immediate neighbors at regular intervals.\\n3. It uses the Bellman-Ford algorithm to calculate the shortest path.\\n4. 'Distance' refers to the cost (e.g., hop count), and 'Vector' is the direction (next-hop router).\\n5. Example: Routing Information Protocol (RIP) uses DVR with hop count as the metric.\\n6. Each router maintains a table showing the best known distance to each destination.\\n7. The Count-to-Infinity problem occurs when a link goes down, and routers continuously update each other with incorrect, increasing metrics.\\n8. This creates routing loops where packets bounce back and forth.\\n9. Solutions to Count-to-Infinity include Split Horizon.\\n10. Another solution is Route Poisoning, where the failed route is advertised with an infinite metric (e.g., 16 hops in RIP).",
+          '### Architecture of an Expert System\n\nAn Expert System is designed to solve complex problems by reasoning through bodies of knowledge. It consists of three primary components:\n\n1.  **Knowledge Base:**\n    * The core database containing domain-specific, high-quality knowledge.\n    * Stores rules, facts, and heuristics (typically structured as `IF-THEN` rules).\n2.  **Inference Engine:**\n    * The "brain" of the system.\n    * Applies logical rules to the knowledge base to deduce new information and arrive at conclusions.\n    * Operates using either **Forward Chaining** (data-driven) or **Backward Chaining** (goal-driven) methodologies.\n3.  **User Interface:**\n    * Allows non-expert human users to interact with the system.\n    * Accepts natural language queries and displays conclusions or explanations.\n\n**Ancillary Modules:**\n* **Knowledge Acquisition Facility:** Assists in extracting and formatting knowledge from human experts.\n* **Explanation Module:** Transparently explains *how* and *why* a particular conclusion was reached by the engine.',
       },
     ],
   },
   extras: {
     questions: [
       {
-        question: "Differentiate between CSMA/CD and CSMA/CA.",
+        question:
+          "Differentiate between Supervised and Unsupervised Machine Learning.",
         marks: 5,
         frequency: "1_OF_4_PAPERS",
         solution:
-          "1. CSMA/CD stands for Carrier Sense Multiple Access with Collision Detection.\\n2. CSMA/CA stands for Carrier Sense Multiple Access with Collision Avoidance.\\n3. CSMA/CD is used in wired networks like Ethernet (IEEE 802.3).\\n4. CSMA/CA is used in wireless networks like Wi-Fi (IEEE 802.11).\\n5. In CSMA/CD, devices transmit data and listen for collisions; if detected, they stop and retransmit later.\\n6. In CSMA/CA, devices use techniques like inter-frame space (IFS) and back-off timers to avoid collisions before they happen.\\n7. CSMA/CD can effectively detect collisions because simultaneous transmission and reception are possible on wired media.\\n8. CSMA/CA cannot easily detect collisions due to the hidden terminal problem and signal attenuation in wireless media.\\n9. CSMA/CA often uses RTS/CTS (Request to Send / Clear to Send) control frames to reserve the channel.\\n10. CSMA/CD focuses on recovery after a collision, while CSMA/CA focuses on preventing them proactively.",
+          "### Supervised vs. Unsupervised Learning\n\n| Aspect | Supervised Learning | Unsupervised Learning |\n| :--- | :--- | :--- |\n| **Input Data** | Trained on **labeled** data (Input variables + Known Target). | Trained on **unlabeled** data (Input variables only). |\n| **Core Objective** | Predict outcomes or classify new, unseen data accurately. | Discover hidden patterns, structures, or groupings. |\n| **Feedback Loop** | Explicit feedback is provided during training to calculate loss. | No explicit feedback mechanism or supervisor exists. |\n| **Common Algorithms** | Linear Regression, SVM, Random Forests. | K-Means Clustering, Principal Component Analysis (PCA). |\n| **Complexity** | Conceptually simpler, but requires expensive labeled datasets. | Computationally complex as the system learns structures independently. |",
       },
     ],
   },

@@ -38,13 +38,19 @@
     "check": "biome check --write ."
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
     "@score-more-finale/env": "workspace:*",
     "dotenv": "catalog:",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
+    "marked": "^18.0.2",
+    "react-pdf-html": "^2.1.5",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.0",
     "@score-more-finale/config": "workspace:*",
+    "@types/marked": "^6.0.0",
     "@types/node": "^22.13.14",
     "typescript": "^6.0.3"
   },

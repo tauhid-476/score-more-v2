@@ -13,6 +13,20 @@
     @apply bg-background/70 backdrop-blur-lg border border-border/30;
   }
 
+  .link-underline {
+    background-image:
+      linear-gradient(transparent, transparent),
+      linear-gradient(#22c55e, #22c55e);
+    background-size: 0 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
   .container-custom {
     @apply px-4 md:px-8 lg:px-16 xl:px-24 mx-auto max-w-7xl;
   }
@@ -31,6 +45,14 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  body {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 
@@ -91,4 +113,35 @@
 
 .animate-pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Smoother card animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Fix prose font sizes inside solution panel */
+.prose p,
+.prose li {
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.75;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
 }

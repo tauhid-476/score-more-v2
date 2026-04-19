@@ -59,6 +59,39 @@ const EnhancedMarkdownPreview = ({
               className="bg-secondary/20 text-secondary-foreground rounded px-1 py-0.5 text-sm font-mono"
             />
           ),
+          // --- NEW TABLE STYLES BELOW ---
+          table: ({ ...props }) => (
+            <div className="my-6 w-full overflow-x-auto rounded-lg border border-border/60 shadow-sm">
+              <table
+                {...props}
+                className="w-full text-sm text-left border-collapse"
+              />
+            </div>
+          ),
+          thead: ({ ...props }) => (
+            <thead
+              {...props}
+              className="bg-muted/50 text-foreground border-b border-border/60"
+            />
+          ),
+          tbody: ({ ...props }) => (
+            <tbody {...props} className="divide-y divide-border/60" />
+          ),
+          tr: ({ ...props }) => (
+            <tr {...props} className="transition-colors hover:bg-muted/20" />
+          ),
+          th: ({ ...props }) => (
+            <th
+              {...props}
+              className="px-4 py-3 font-semibold border-r border-border/60 last:border-r-0 align-middle"
+            />
+          ),
+          td: ({ ...props }) => (
+            <td
+              {...props}
+              className="px-4 py-3 text-muted-foreground border-r border-border/60 last:border-r-0 align-top leading-relaxed"
+            />
+          ),
         }}
       >
         {cleanedSource}
@@ -68,7 +101,3 @@ const EnhancedMarkdownPreview = ({
 };
 
 export const MarkdownPreview = EnhancedMarkdownPreview;
-// export default dynamic(
-//   () => import("@uiw/react-md-editor").then((mod) => mod.default),
-//   { ssr: false },
-// );
